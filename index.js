@@ -7,6 +7,8 @@ require('dotenv').config()
 const uri = 'mongodb+srv://ETE:ETE1704048@cluster0.sbjn6.mongodb.net/WebETE?retryWrites=true&w=majority';
 
 const app = express()
+app.use(express.static('dist')); // or where the output of the ng-build is placed
+
 app.use(bodyParser.json());
 app.use(cors());
 const port = 5000
