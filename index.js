@@ -48,6 +48,18 @@ client.connect(err => {
         res.send(result.insertedCount > 0);
       }) 
   })
+  app.post('/addExtra/', (req, res) => {
+    
+      const {series,dept,semester,result_csv}=req.body;
+      console.log(series);
+
+      // console.log(req.files);
+      return res.status(200).json({
+        status: "failed",
+        message: "Number of books and number of id should be same",
+        series
+      });
+  })
   app.post('/addCTM/', (req, res) => {
     const semResult = req.body
     ctmarks.insertOne(semResult)
@@ -69,5 +81,5 @@ client.connect(err => {
   })
 
 });
-
-app.listen(process.env.PORT || port)
+// "start": "node index.js",
+app.listen(5000)
